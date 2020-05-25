@@ -1,0 +1,36 @@
+<div class="container-xl">
+    <div class="row mt-5 justify-content-center">
+        <h1><u>Blog</u></h1>
+    </div>
+    <div class="row">
+        <h2>Filtros</h2>
+        <div class="input-group mb-3 mt-1" [formGroup]="filtro">
+            <input type="text" class="form-control" placeholder="Filtro Título" formControlName="titulo">
+            <div class="input-group-append">
+                <button class="btn btn-outline-info" (click)="onFiltrarTitulo()">Buscar</button>
+            </div>
+        </div>
+        <div class="input-group mb-3" [formGroup]="filtro">
+            <input type="text" class="form-control" placeholder="Filtro Autor" formControlName="autor">
+            <div class="input-group-append">
+                <button class="btn btn-outline-info" (click)="onFiltrarAutor()">Buscar</button>
+            </div>
+        </div>
+        <div class="col-lg-9 mt-2">
+            <h2 class="display-3">Posts</h2>
+            <div class="post" *ngFor="let post of posts">
+                <h4>{{post.titulo}}</h4>
+                <p>{{post.texto}}</p>
+                <p class="blockquote-footer"><strong>{{post.autor}}</strong></p>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img [src]="post.imagen" alt="" style="width:100%">
+                    </div>
+                </div>
+                <p class="mt-3">{{post.categoria}}</p>
+                <p class="pl-3 border border-info rounded-pill">{{post.fecha}}</p>
+            </div>
+            <button class="btn btn-info btn-block mb-5" (click)="onClick()">Formulario</button>
+        </div>
+    </div> 
+</div>
